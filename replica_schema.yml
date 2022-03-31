@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: app-replicas
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      name: pod
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: kanban
+          image: avendo/kanaban
+          ports:
+            - containerPort: 80
+
+    
